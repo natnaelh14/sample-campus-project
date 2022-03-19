@@ -1,16 +1,67 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham-Book.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham-BookItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("/fonts/Gotham-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham Ultra";
+  src: url("/fonts/Gotham-Ultra.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  body {
+    @apply font-gotham text-lg font-normal text-blue-primary;
+  }
+
+  h1 {
+    @apply font-gothamUltra text-7xl;
+  }
+
+  h5 {
+  }
+
+  a {
+    @apply rounded font-bold text-orange-primary underline decoration-transparent outline-2 outline-offset-4 outline-orange-primary transition duration-100 focus:outline-dashed;
+  }
 }
 
-* {
-  box-sizing: border-box;
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-between bg-orange-primary text-base text-white transition hover:bg-orange-dark hover:shadow-md hover:shadow-orange-primary/25 focus:outline-dashed;
+  }
+  .btn-square {
+    @apply rounded-sm py-4 px-2.5 font-medium tracking-wide shadow-orange-primary/25 transition-colors;
+  }
+  .btn-round {
+    @apply rounded-35 px-5 py-2.5 font-bold tracking-wide shadow-orange-primary/25 hover:bg-orange-dark;
+  }
+
+  .nav-link {
+    @apply font-medium tracking-wide text-white decoration-transparent transition-colors hover:text-orange-primary hover:decoration-orange-primary;
+  }
 }

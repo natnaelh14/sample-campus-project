@@ -10,7 +10,7 @@ const PlanSummary = () => {
   };
   return (
     <div className="m-2">
-      <RegistrationFlow step1 step2 step3 />
+      <RegistrationFlow step1 step2 step3 PlanSummary />
       <h1 className="mb-8 text-center">Plan Summary</h1>
       <div className="flex flex-col items-center">
         <div className="m-8 max-w-sm overflow-hidden rounded shadow-lg">

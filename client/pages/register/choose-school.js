@@ -10,7 +10,7 @@ const ChooseSchool = () => {
   };
   return (
     <div className="m-2">
-      <RegistrationFlow step1 />
+      <RegistrationFlow step1 ChooseSchool />
       <h1 className="mb-8 text-center">Choose School</h1>
       <div className="items flex flex-wrap">
         <div

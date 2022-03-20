@@ -26,10 +26,10 @@ const Navbar = () => {
               Register
             </a>
           </Link>
-          <Link href="/map">
+          <Link href="/">
             <a className="nav-link">Find a Truck</a>
           </Link>
-          <Link href="/register/plans">
+          <Link href="/">
             <a className="nav-link">View Plans</a>
           </Link>
           <Link href="/account/login">

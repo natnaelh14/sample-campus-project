@@ -9,7 +9,7 @@ const SelectPlan = () => {
   };
   return (
     <div className="m-2">
-      <RegistrationFlow step1 step2 />
+      <RegistrationFlow step1 step2 SelectPlan />
       <h1 className="mb-8 text-center">Select Plan</h1>
       <div className="flex flex-row justify-center">
         <div className="max-w-sm overflow-hidden rounded shadow-lg m-8 hover:scale-110" onClick={handleSubmit}>

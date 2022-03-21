@@ -2,11 +2,16 @@ import React from "react";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
 import RegistrationFlow from "../../components/RegistrationFlow";
+import { useDispatch } from 'react-redux';
+import { addSubscription } from '../../redux/reducers/subscriptionReducer';
 
 const PlanSummary = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
+
   const handleSubmit = () => {
    router.push("/register/receipt");
+   dispatch(addSubscription({ Subscription: "20lbs Plan", SubMarket: "Harvard University" }))
   };
   return (
     <div className="m-2">

@@ -5,9 +5,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   updateProfile
-} from 'firebase/auth'
-import { auth } from '../config/firebase'
-
+} from 'firebase/auth';
+import { auth } from '../config/firebase';
 const AuthContext = createContext()
 
 export const useAuth = () => useContext(AuthContext)

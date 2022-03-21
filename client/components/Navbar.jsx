@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import HeroImage from "/public/images/hero-tc-logo.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,13 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const router = useRouter();
   const { user, logout } = useAuth();
+  useEffect(() => {
+    console.log('USER', user)
+  }, [user])
+  const handleLogOut = async() => {
+    await logout();
+    router.push("/login");
+  }
   return (
     <>
       <nav className="fixed top-0 z-10 flex h-[92px] w-full items-center justify-between bg-blue-primary px-8 shadow-md shadow-blue-light/20">
@@ -33,10 +41,7 @@ const Navbar = () => {
           </Link>
           {user ? (
             <Link
-              onClick={() => {
-                logout();
-                router.push("/login");
-              }}
+              onClick={handleLogOut}
               href="/login"
             >
               <a className="nav-link">Logout</a>

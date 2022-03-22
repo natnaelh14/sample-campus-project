@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import RegistrationFlow from "../../components/RegistrationFlow";
+import { SubscriptionContext } from "../../context/SubscriptionContext";
 
 const SelectPlan = () => {
   const router = useRouter();
-  const handleSubmit = () => {
+  const { setSubscription } = useContext(SubscriptionContext);
+  const handleSubmit = (e) => {
+   setSubscription(e.target.value)
    router.push("/register/plan-summary");
   };
   return (
@@ -12,7 +15,7 @@ const SelectPlan = () => {
       <RegistrationFlow step1 step2 SelectPlan />
       <h1 className="mb-8 text-center">Select Plan</h1>
       <div className="flex flex-row justify-center">
-        <div className="max-w-sm overflow-hidden rounded shadow-lg m-8 hover:scale-110" onClick={handleSubmit}>
+        <div className="max-w-sm overflow-hidden rounded shadow-lg m-8 hover:scale-110">
           <img
             className="w-full hover:cursor-pointer"
             src="https://robohash.org/7?size=200x200"
@@ -37,8 +40,11 @@ const SelectPlan = () => {
               #winter
             </span>
           </div>
+          <div className="flex justify-center">
+            <button value="10lbs Plan" onClick={handleSubmit}>Select</button>
+          </div>
         </div>
-        <div className="max-w-sm overflow-hidden rounded shadow-lg m-8 hover:scale-110" onClick={handleSubmit}>
+        <div className="max-w-sm overflow-hidden rounded shadow-lg m-8 hover:scale-110">
           <img
             className="w-full hover:cursor-pointer"
             src="https://robohash.org/2?size=200x200"
@@ -62,6 +68,9 @@ const SelectPlan = () => {
             <span className="bg-gray-200 text-gray-700 mr-2 mb-2 inline-block rounded-full px-3 py-1 text-sm font-semibold">
               #winter
             </span>
+          </div>
+          <div className="flex justify-center">
+            <button value="20lbs Plan" onClick={handleSubmit}>Select</button>
           </div>
         </div>
       </div>

@@ -1,6 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { SubscriptionContext } from "../context/SubscriptionContext";
+
 
 const Dashboard = () => {
+  const { subMarket, subscription } = useContext(SubscriptionContext);
+
     return (
         <div className="m-20">
         <h1 className="mb-8 text-center">Current Plan</h1>
@@ -12,7 +16,7 @@ const Dashboard = () => {
               alt="Mountain"
             />
             <div className="px-6 py-4">
-              <div className="mb-2 text-xl font-bold">20lbs Plan</div>
+              <div className="mb-2 text-xl font-bold">{subscription}</div>
               <p className="text-gray-700 text-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, Nonea! Maiores et perferendis eaque,
@@ -32,7 +36,7 @@ const Dashboard = () => {
             </div>
           </div>
           <h1 className="text-2xl">
-            <b>Submarket:</b> Harvard University
+            <b>Submarket:</b> {subMarket}
           </h1>
         </div>
       </div>

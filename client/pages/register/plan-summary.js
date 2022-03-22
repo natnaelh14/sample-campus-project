@@ -1,17 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
 import RegistrationFlow from "../../components/RegistrationFlow";
-import { useDispatch } from 'react-redux';
-import { addSubscription } from '../../redux/reducers/subscriptionReducer';
+import { SubscriptionContext } from "../../context/SubscriptionContext";
 
 const PlanSummary = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
-
+  const { subMarket, subscription } = useContext(SubscriptionContext);
   const handleSubmit = () => {
    router.push("/register/receipt");
-   dispatch(addSubscription({ Subscription: "20lbs Plan", SubMarket: "Harvard University" }))
   };
   return (
     <div className="m-2">
@@ -25,7 +22,7 @@ const PlanSummary = () => {
             alt="Mountain"
           />
           <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">20lbs Plan</div>
+            <div className="mb-2 text-xl font-bold">{subscription}</div>
             <p className="text-gray-700 text-base">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatibus quia, Nonea! Maiores et perferendis eaque,
@@ -45,7 +42,7 @@ const PlanSummary = () => {
           </div>
         </div>
         <h1 className="text-2xl">
-          <b>Submarket:</b> Harvard University
+          <b>Submarket:</b> {subMarket}
         </h1>
         <Button className="py-2 px-4 m-4 bg-orange-primary rounded-lg text-white" onClick={handleSubmit}>Pay Now</Button>
       </div>

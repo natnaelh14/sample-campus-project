@@ -1,11 +1,6 @@
-import React, { useEffect} from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 
 const Dashboard = () => {
-    const subs = useSelector(state => state.subscription);
-    useEffect(() => {
-      console.log("DATA", subs)
-    }, [subs])
     return (
         <div className="m-20">
         <h1 className="mb-8 text-center">Current Plan</h1>
